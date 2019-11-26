@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 class ActivitiesPage extends StatefulWidget {
+  const ActivitiesPage({Key key}) : super(key: key);
+
   @override
   _ActivitiesPageState createState() => _ActivitiesPageState();
 }
 
 class _ActivitiesPageState extends State<ActivitiesPage> {
-  final _chosenActivities = <Text>[];
+  final _chosenActivities = <Text>[Text('One'), Text('Two'), Text('Three')];
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,11 @@ class _ActivitiesPageState extends State<ActivitiesPage> {
     final List<Widget> divided = ListTile.divideTiles(
       tiles: tiles,
       context: context,
-    ).toList();
+    )
+        .map((tile) => Card(
+              child: tile,
+            ))
+        .toList();
     return ListView(
       padding: const EdgeInsets.all(16.0),
       children: divided,
