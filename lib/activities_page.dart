@@ -6,11 +6,33 @@ class ActivitiesPage extends StatefulWidget {
 }
 
 class _ActivitiesPageState extends State<ActivitiesPage> {
+  final _chosenActivities = <Text>[];
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      child: Text('Activities Page'),
+    context.owner;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Activities'),
+        automaticallyImplyLeading: true,
+      ),
+      body: _buildActivityList(),
+    );
+  }
+
+  Widget _buildActivityList() {
+    final Iterable<ListTile> tiles = _chosenActivities.map((Text activity) {
+      return ListTile(
+        title: activity,
+      );
+    });
+    final List<Widget> divided = ListTile.divideTiles(
+      tiles: tiles,
+      context: context,
+    ).toList();
+    return ListView(
+      padding: const EdgeInsets.all(16.0),
+      children: divided,
     );
   }
 }
