@@ -8,9 +8,11 @@ class ActivitiesPage extends StatefulWidget {
 class _ActivitiesPageState extends State<ActivitiesPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      child: Text('Activities Page'),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Activities'),
+      ),
+      body: Text('hello')
     );
   }
 }

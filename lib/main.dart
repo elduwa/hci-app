@@ -1,3 +1,4 @@
+import 'package:custom_navigator/custom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:hci_app/activities_page.dart';
 import 'package:hci_app/patients_page.dart';
@@ -11,48 +12,54 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var _selectedPageIndex = 0;
-  final _pageOptions = <Widget>[
-    PatientsPage(),
-    ActivitiesPage(),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(
           primarySwatch: Colors.green,
         ),
-        home: Scaffold(
-          appBar: AppBar(
-            title: Text('hci-app'),
+        home: CustomScaffold(
+          scaffold: Scaffold(
+            bottomNavigationBar: BottomNavigationBar(
+              fixedColor: null,
+              backgroundColor: Colors.green,
+              unselectedItemColor: Colors.white,
+              showSelectedLabels: true,
+              showUnselectedLabels: true,
+              type: BottomNavigationBarType.fixed,
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.people,
+                    color: Colors.white,
+                  ),
+                  title: Text(
+                    'Patients',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.event_note,
+                    color: Colors.white,
+                  ),
+                  title: Text(
+                    'Activities',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
-          body: _pageOptions[_selectedPageIndex],
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {},
-            child: Icon(Icons.add),
-          ),
-          bottomNavigationBar: BottomNavigationBar(
-            currentIndex: _selectedPageIndex,
-            showSelectedLabels: false,
-            showUnselectedLabels: false,
-            type: BottomNavigationBarType.fixed,
-            onTap: (int index) {
-              setState(() {
-                _selectedPageIndex = index;
-              });
-            },
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.people),
-                title: Text('Patients'),
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.event_note),
-                title: Text('Activities'),
-              ),
-            ],
-          ),
+          children: <Widget>[
+            PatientsPage(),
+            ActivitiesPage(),
+          ],
+          onItemTap: (index) {},
         ));
   }
 }
