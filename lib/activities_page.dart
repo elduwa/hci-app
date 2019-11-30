@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hci_app/choose_activities_page.dart';
 
 class ActivitiesPage extends StatefulWidget {
   const ActivitiesPage({Key key}) : super(key: key);
@@ -8,15 +9,20 @@ class ActivitiesPage extends StatefulWidget {
 }
 
 class _ActivitiesPageState extends State<ActivitiesPage> {
-  final _chosenActivities = <Text>[Text('One'), Text('Two'), Text('Three')];
+  final Set<Text> _chosenActivities = Set<Text>();
 
   @override
   Widget build(BuildContext context) {
-    context.owner;
+    //context.owner;
     return Scaffold(
       appBar: AppBar(
         title: Text('Activities'),
-        automaticallyImplyLeading: true,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () => _goToChooseActivity(context),
+          ),
+        ],
       ),
       body: _buildActivityList(),
     );
@@ -40,5 +46,17 @@ class _ActivitiesPageState extends State<ActivitiesPage> {
       padding: const EdgeInsets.all(16.0),
       children: divided,
     );
+  }
+
+  void _goToChooseActivity(BuildContext context) async {
+    final result = await Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ChooseActivitiesPage(),
+        ));
+
+    setState(() {
+      _chosenActivities.add(result);
+    });
   }
 }
