@@ -1,8 +1,9 @@
+import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:hci_app/grouped_activities.dart';
 
 class ChooseActivitiesPage extends StatefulWidget {
-  final Set<String> preselectedActivities;
+  final List<Activity> preselectedActivities;
 
   const ChooseActivitiesPage({Key key, this.preselectedActivities})
       : super(key: key);
@@ -12,7 +13,7 @@ class ChooseActivitiesPage extends StatefulWidget {
 }
 
 class _ChooseActivitiesPageState extends State<ChooseActivitiesPage> {
-  final Set<String> _selectedActivities = Set<String>();
+  final List<Activity> _selectedActivities = List<Activity>();
 
   @override
   void initState() {
@@ -28,7 +29,7 @@ class _ChooseActivitiesPageState extends State<ChooseActivitiesPage> {
       appBar: AppBar(
         title: Text('Choose Today\'s Activities'),
       ),
-      body: _buildActivityTable(groupedActivities),
+      body: _buildActivityTable(allActivities),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _sendDataBack(context),
         child: Icon(
@@ -38,16 +39,11 @@ class _ChooseActivitiesPageState extends State<ChooseActivitiesPage> {
     );
   }
 
-  Widget _buildActivityTable(Map groupedActivities) {
-    Iterable<MapEntry> entries = groupedActivities.entries;
-    List<String> allActivities = new List<String>();
-    entries.forEach((entry) {
-      allActivities.addAll(entry.value);
-    });
-    Set<Widget> tiles = allActivities.map((activity) {
+  Widget _buildActivityTable(List<Activity> activities) {
+    List<Widget> tiles = activities.map((activity) {
       bool alreadySelected = _selectedActivities.contains(activity);
       return ListTile(
-        title: Text(activity),
+        title: Text(activity.name),
         trailing: Icon(
           alreadySelected ? Icons.check : null,
           color: Colors.black,
@@ -62,7 +58,7 @@ class _ChooseActivitiesPageState extends State<ChooseActivitiesPage> {
           });
         },
       );
-    }).toSet();
+    }).toList();
     final List<Widget> divided = ListTile.divideTiles(
       context: context,
       tiles: tiles,

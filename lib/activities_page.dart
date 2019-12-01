@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hci_app/choose_activities_page.dart';
+import 'package:hci_app/grouped_activities.dart';
 
 class ActivitiesPage extends StatefulWidget {
   const ActivitiesPage({Key key}) : super(key: key);
@@ -9,7 +10,7 @@ class ActivitiesPage extends StatefulWidget {
 }
 
 class _ActivitiesPageState extends State<ActivitiesPage> {
-  final Set<String> _chosenActivities = Set<String>();
+  final List<Activity> _chosenActivities = List<Activity>();
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class _ActivitiesPageState extends State<ActivitiesPage> {
   Widget _buildActivityList() {
     final Iterable<ListTile> tiles = _chosenActivities.map((activity) {
       return ListTile(
-        title: Text(activity),
+        title: Text(activity.name),
       );
     });
     final List<Widget> divided = ListTile.divideTiles(
