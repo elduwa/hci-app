@@ -15,3 +15,7 @@ const groupedActivities = {
   'Open Air': openAir,
   'Exercise': exercise,
 };
+
+class Activity {
+  String name;
+}
