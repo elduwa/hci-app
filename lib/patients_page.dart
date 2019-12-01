@@ -2,214 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:hci_app/patient_detail_page.dart';
 
 class PatientsPage extends StatefulWidget {
+  const PatientsPage({Key key}) : super(key: key);
   @override
   _PatientsPageState createState() => _PatientsPageState();
 }
 
 class _PatientsPageState extends State<PatientsPage> {
-  List<Patient> patients = [
-    Patient(
-      firstname: "Katrina",
-      lastname: "Meier",
-      room: 142,
-      medicalHistory: [
-        "surgery for hip replacement",
-        "drug allergy",
-        "diagnosed very tired",
-        "dental prosthesis",
-      ],
-      background: [
-        "has always enjoyed watching movies",
-        "used to be a construction worker",
-        "very kind personality",
-        "has 3 children",
-        "traumatic childhood"
-      ],
-      activities: {
-        "Singing": 5,
-        "Storytelling": 2,
-        "Walking": 10,
-        "Movies": 15,
-      },
-      imgPath: 'assets/images/person1.JPG',
-    ),
-    Patient(
-      firstname: "John",
-      lastname: "Doe",
-      room: 121,
-      medicalHistory: [
-        "surgery for hip replacement",
-        "drug allergy",
-        "diagnosed very tired",
-        "dental prosthesis",
-      ],
-      background: [
-        "has always enjoyed watching movies",
-        "used to be a construction worker",
-        "very kind personality",
-        "has 3 children",
-        "traumatic childhood"
-      ],
-      activities: {
-        "Singing": 3,
-        "Storytelling": 2,
-        "Walking": 3,
-        "Movies": 5,
-      },
-      imgPath: 'assets/images/person2.JPG',
-    ),
-    Patient(
-      firstname: "Warren",
-      lastname: "Bluffet",
-      room: 222,
-      medicalHistory: [
-        "surgery for hip replacement",
-        "drug allergy",
-        "diagnosed very tired",
-        "dental prosthesis",
-      ],
-      background: [
-        "has always enjoyed watching movies",
-        "used to be a construction worker",
-        "very kind personality",
-        "has 3 children",
-        "traumatic childhood"
-      ],
-      activities: {
-        "Singing": 5,
-        "Storytelling": 2,
-        "Walking": 10,
-        "Movies": 15,
-      },
-      imgPath: 'assets/images/person3.JPG',
-    ),
-    Patient(
-      firstname: "Bill",
-      lastname: "States",
-      room: 198,
-      medicalHistory: [
-        "surgery for hip replacement",
-        "drug allergy",
-        "diagnosed very tired",
-        "dental prosthesis",
-      ],
-      background: [
-        "has always enjoyed watching movies",
-        "used to be a construction worker",
-        "very kind personality",
-        "has 3 children",
-        "traumatic childhood"
-      ],
-      activities: {
-        "Singing": 5,
-        "Storytelling": 2,
-        "Walking": 10,
-        "Movies": 15,
-      },
-      imgPath: 'assets/images/person4.JPG',
-    ),
-    Patient(
-      firstname: "Morgan",
-      lastname: "Streetman",
-      room: 970,
-      medicalHistory: [
-        "surgery for hip replacement",
-        "drug allergy",
-        "diagnosed very tired",
-        "dental prosthesis",
-      ],
-      background: [
-        "has always enjoyed watching movies",
-        "used to be a construction worker",
-        "very kind personality",
-        "has 3 children",
-        "traumatic childhood"
-      ],
-      activities: {
-        "Singing": 5,
-        "Storytelling": 2,
-        "Walking": 10,
-        "Movies": 15,
-      },
-      imgPath: 'assets/images/person5.JPG',
-    ),
-    Patient(
-      firstname: "Judi",
-      lastname: "Lench",
-      room: 100,
-      medicalHistory: [
-        "surgery for hip replacement",
-        "drug allergy",
-        "diagnosed very tired",
-        "dental prosthesis",
-      ],
-      background: [
-        "has always enjoyed watching movies",
-        "used to be a construction worker",
-        "very kind personality",
-        "has 3 children",
-        "traumatic childhood"
-      ],
-      activities: {
-        "Singing": 5,
-        "Storytelling": 2,
-        "Walking": 10,
-        "Movies": 15,
-      },
-      imgPath: 'assets/images/person6.JPG',
-    ),
-    Patient(
-      firstname: "Betty",
-      lastname: "Bites",
-      room: 111,
-      medicalHistory: [
-        "surgery for hip replacement",
-        "drug allergy",
-        "diagnosed very tired",
-        "dental prosthesis",
-      ],
-      background: [
-        "has always enjoyed watching movies",
-        "used to be a construction worker",
-        "very kind personality",
-        "has 3 children",
-        "traumatic childhood"
-      ],
-      activities: {
-        "Singing": 5,
-        "Storytelling": 2,
-        "Walking": 10,
-        "Movies": 15,
-      },
-      imgPath: 'assets/images/person7.JPG',
-    ),
-    Patient(
-      firstname: "Hillary",
-      lastname: "Hilton",
-      room: 111,
-      medicalHistory: [
-        "surgery for hip replacement",
-        "drug allergy",
-        "diagnosed very tired",
-        "dental prosthesis",
-      ],
-      background: [
-        "has always enjoyed watching movies",
-        "used to be a construction worker",
-        "very kind personality",
-        "has 3 children",
-        "traumatic childhood"
-      ],
-      activities: {
-        "Singing": 5,
-        "Storytelling": 2,
-        "Walking": 10,
-        "Movies": 15,
-      },
-      imgPath: 'assets/images/person8.JPG',
-    ),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -267,3 +65,206 @@ class Patient {
     this.imgPath,
   });
 }
+
+List<Patient> patients = [
+  Patient(
+    firstname: "Katrina",
+    lastname: "Meier",
+    room: 142,
+    medicalHistory: [
+      "surgery for hip replacement",
+      "drug allergy",
+      "diagnosed very tired",
+      "dental prosthesis",
+    ],
+    background: [
+      "has always enjoyed watching movies",
+      "used to be a construction worker",
+      "very kind personality",
+      "has 3 children",
+      "traumatic childhood"
+    ],
+    activities: {
+      "Singing": 5,
+      "Storytelling": 2,
+      "Walking": 10,
+      "Movies": 15,
+    },
+    imgPath: 'assets/images/person1.JPG',
+  ),
+  Patient(
+    firstname: "John",
+    lastname: "Doe",
+    room: 121,
+    medicalHistory: [
+      "surgery for hip replacement",
+      "drug allergy",
+      "diagnosed very tired",
+      "dental prosthesis",
+    ],
+    background: [
+      "has always enjoyed watching movies",
+      "used to be a construction worker",
+      "very kind personality",
+      "has 3 children",
+      "traumatic childhood"
+    ],
+    activities: {
+      "Singing": 3,
+      "Storytelling": 2,
+      "Walking": 3,
+      "Movies": 5,
+    },
+    imgPath: 'assets/images/person2.JPG',
+  ),
+  Patient(
+    firstname: "Warren",
+    lastname: "Bluffet",
+    room: 222,
+    medicalHistory: [
+      "surgery for hip replacement",
+      "drug allergy",
+      "diagnosed very tired",
+      "dental prosthesis",
+    ],
+    background: [
+      "has always enjoyed watching movies",
+      "used to be a construction worker",
+      "very kind personality",
+      "has 3 children",
+      "traumatic childhood"
+    ],
+    activities: {
+      "Singing": 5,
+      "Storytelling": 2,
+      "Walking": 10,
+      "Movies": 15,
+    },
+    imgPath: 'assets/images/person3.JPG',
+  ),
+  Patient(
+    firstname: "Bill",
+    lastname: "States",
+    room: 198,
+    medicalHistory: [
+      "surgery for hip replacement",
+      "drug allergy",
+      "diagnosed very tired",
+      "dental prosthesis",
+    ],
+    background: [
+      "has always enjoyed watching movies",
+      "used to be a construction worker",
+      "very kind personality",
+      "has 3 children",
+      "traumatic childhood"
+    ],
+    activities: {
+      "Singing": 5,
+      "Storytelling": 2,
+      "Walking": 10,
+      "Movies": 15,
+    },
+    imgPath: 'assets/images/person4.JPG',
+  ),
+  Patient(
+    firstname: "Morgan",
+    lastname: "Streetman",
+    room: 970,
+    medicalHistory: [
+      "surgery for hip replacement",
+      "drug allergy",
+      "diagnosed very tired",
+      "dental prosthesis",
+    ],
+    background: [
+      "has always enjoyed watching movies",
+      "used to be a construction worker",
+      "very kind personality",
+      "has 3 children",
+      "traumatic childhood"
+    ],
+    activities: {
+      "Singing": 5,
+      "Storytelling": 2,
+      "Walking": 10,
+      "Movies": 15,
+    },
+    imgPath: 'assets/images/person5.JPG',
+  ),
+  Patient(
+    firstname: "Judi",
+    lastname: "Lench",
+    room: 100,
+    medicalHistory: [
+      "surgery for hip replacement",
+      "drug allergy",
+      "diagnosed very tired",
+      "dental prosthesis",
+    ],
+    background: [
+      "has always enjoyed watching movies",
+      "used to be a construction worker",
+      "very kind personality",
+      "has 3 children",
+      "traumatic childhood"
+    ],
+    activities: {
+      "Singing": 5,
+      "Storytelling": 2,
+      "Walking": 10,
+      "Movies": 15,
+    },
+    imgPath: 'assets/images/person6.JPG',
+  ),
+  Patient(
+    firstname: "Betty",
+    lastname: "Bites",
+    room: 111,
+    medicalHistory: [
+      "surgery for hip replacement",
+      "drug allergy",
+      "diagnosed very tired",
+      "dental prosthesis",
+    ],
+    background: [
+      "has always enjoyed watching movies",
+      "used to be a construction worker",
+      "very kind personality",
+      "has 3 children",
+      "traumatic childhood"
+    ],
+    activities: {
+      "Singing": 5,
+      "Storytelling": 2,
+      "Walking": 10,
+      "Movies": 15,
+    },
+    imgPath: 'assets/images/person7.JPG',
+  ),
+  Patient(
+    firstname: "Hillary",
+    lastname: "Hilton",
+    room: 111,
+    medicalHistory: [
+      "surgery for hip replacement",
+      "drug allergy",
+      "diagnosed very tired",
+      "dental prosthesis",
+    ],
+    background: [
+      "has always enjoyed watching movies",
+      "used to be a construction worker",
+      "very kind personality",
+      "has 3 children",
+      "traumatic childhood"
+    ],
+    activities: {
+      "Singing": 5,
+      "Storytelling": 2,
+      "Walking": 10,
+      "Movies": 15,
+    },
+    imgPath: 'assets/images/person8.JPG',
+  ),
+];
