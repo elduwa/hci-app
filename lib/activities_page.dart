@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hci_app/choose_activities_page.dart';
 import 'package:hci_app/grouped_activities.dart';
+import 'package:hci_app/single_activity.dart';
 
 class ActivitiesPage extends StatefulWidget {
   const ActivitiesPage({Key key}) : super(key: key);
@@ -33,6 +34,15 @@ class _ActivitiesPageState extends State<ActivitiesPage> {
     final Iterable<ListTile> tiles = _chosenActivities.map((activity) {
       return ListTile(
         title: Text(activity.name),
+        trailing: Icon(Icons.arrow_forward_ios),
+        onTap: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => SingleActivityPage(
+                        activity: activity,
+                      )));
+        },
       );
     });
     final List<Widget> divided = ListTile.divideTiles(
