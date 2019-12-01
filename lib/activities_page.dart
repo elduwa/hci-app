@@ -9,7 +9,7 @@ class ActivitiesPage extends StatefulWidget {
 }
 
 class _ActivitiesPageState extends State<ActivitiesPage> {
-  final Set<Text> _chosenActivities = Set<Text>();
+  final Set<String> _chosenActivities = Set<String>();
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +29,9 @@ class _ActivitiesPageState extends State<ActivitiesPage> {
   }
 
   Widget _buildActivityList() {
-    final Iterable<ListTile> tiles = _chosenActivities.map((Text activity) {
+    final Iterable<ListTile> tiles = _chosenActivities.map((activity) {
       return ListTile(
-        title: activity,
+        title: Text(activity),
       );
     });
     final List<Widget> divided = ListTile.divideTiles(
@@ -52,11 +52,14 @@ class _ActivitiesPageState extends State<ActivitiesPage> {
     final result = await Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => ChooseActivitiesPage(),
+          builder: (context) => ChooseActivitiesPage(
+            preselectedActivities: _chosenActivities,
+          ),
         ));
 
     setState(() {
-      _chosenActivities.add(result);
+      _chosenActivities.clear();
+      _chosenActivities.addAll(result);
     });
   }
 }

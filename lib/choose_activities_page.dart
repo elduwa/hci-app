@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hci_app/grouped_activities.dart';
 
 class ChooseActivitiesPage extends StatefulWidget {
-  final Set<Text> preselectedActivities;
+  final Set<String> preselectedActivities;
 
   const ChooseActivitiesPage({Key key, this.preselectedActivities})
       : super(key: key);
@@ -12,7 +12,7 @@ class ChooseActivitiesPage extends StatefulWidget {
 }
 
 class _ChooseActivitiesPageState extends State<ChooseActivitiesPage> {
-  final Set<Text> _selectedActivities = Set<Text>();
+  final Set<String> _selectedActivities = Set<String>();
 
   @override
   void initState() {
@@ -31,36 +31,44 @@ class _ChooseActivitiesPageState extends State<ChooseActivitiesPage> {
       body: _buildActivityTable(groupedActivities),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _sendDataBack(context),
+        child: Icon(
+          Icons.check,
+        ),
       ),
     );
   }
 
   Widget _buildActivityTable(Map groupedActivities) {
     Iterable<MapEntry> entries = groupedActivities.entries;
-    List<Widget> groupedActivityLists = entries.map((entry) {
-      List<String> values = entry.value;
-      final Iterable<ListTile> tiles = values.map((activity) {
-        return ListTile(
-          title: Text(activity),
-        );
-      });
-      final List<Widget> divided = ListTile.divideTiles(
-        context: context,
-        tiles: tiles,
-      ).toList();
-      return Column(
-        children: <Widget>[
-          Text(entry.key),
-          ListView(
-            children: divided,
-            shrinkWrap: true,
-          )
-        ],
+    List<String> allActivities = new List<String>();
+    entries.forEach((entry) {
+      allActivities.addAll(entry.value);
+    });
+    Set<Widget> tiles = allActivities.map((activity) {
+      bool alreadySelected = _selectedActivities.contains(activity);
+      return ListTile(
+        title: Text(activity),
+        trailing: Icon(
+          alreadySelected ? Icons.check : null,
+          color: Colors.black,
+        ),
+        onTap: () {
+          setState(() {
+            if (alreadySelected) {
+              _selectedActivities.remove(activity);
+            } else {
+              _selectedActivities.add(activity);
+            }
+          });
+        },
       );
-    }).toList();
-
-    return Column(
-      children: groupedActivityLists,
+    }).toSet();
+    final List<Widget> divided = ListTile.divideTiles(
+      context: context,
+      tiles: tiles,
+    ).toList();
+    return ListView(
+      children: divided,
     );
   }
 
