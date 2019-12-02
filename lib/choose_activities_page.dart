@@ -39,7 +39,7 @@ class _ChooseActivitiesPageState extends State<ChooseActivitiesPage> {
             child: Text('Cornfirm activities & Assign participants'),
           ),
           shape: const StadiumBorder(),
-          fillColor: Colors.orange,
+          fillColor: Colors.blue,
           textStyle: TextStyle(
             color: Colors.white,
             fontSize: 16.0,

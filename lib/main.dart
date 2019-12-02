@@ -16,13 +16,13 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(
-          primarySwatch: Colors.green,
+          primarySwatch: Colors.teal,
         ),
         home: CustomScaffold(
           scaffold: Scaffold(
             bottomNavigationBar: BottomNavigationBar(
               fixedColor: null,
-              backgroundColor: Colors.green,
+              backgroundColor: Colors.teal,
               unselectedItemColor: Colors.white,
               showSelectedLabels: true,
               showUnselectedLabels: true,
