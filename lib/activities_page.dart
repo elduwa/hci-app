@@ -59,18 +59,19 @@ class _ActivitiesPageState extends State<ActivitiesPage> {
     );
   }
 
-  void _goToChooseActivity(BuildContext context) async {
-    final result = await Navigator.push(
+  void _goToChooseActivity(BuildContext context) {
+    final result = Navigator.push(
         context,
         MaterialPageRoute(
           builder: (context) => ChooseActivitiesPage(
             preselectedActivities: _chosenActivities,
           ),
         ));
-
-    setState(() {
-      _chosenActivities.clear();
-      _chosenActivities.addAll(result);
+    result.then((result) {
+      setState(() {
+        _chosenActivities.clear();
+        _chosenActivities.addAll(result);
+      });
     });
   }
 }

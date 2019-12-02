@@ -46,6 +46,8 @@ class _PatientsPageState extends State<PatientsPage> {
   }
 }
 
+enum Mood { bad, neutral, good }
+
 class Patient {
   final String firstname;
   final String lastname;
@@ -54,6 +56,7 @@ class Patient {
   final List<String> background;
   final Map<String, double> activities;
   final String imgPath;
+  final Mood mood;
 
   Patient({
     this.firstname,
@@ -63,6 +66,7 @@ class Patient {
     this.background,
     this.activities,
     this.imgPath,
+    this.mood,
   });
 }
 
@@ -91,6 +95,7 @@ List<Patient> patients = [
       "Movies": 15,
     },
     imgPath: 'assets/images/person1.JPG',
+    mood: Mood.good,
   ),
   Patient(
     firstname: "John",
@@ -116,6 +121,7 @@ List<Patient> patients = [
       "Movies": 5,
     },
     imgPath: 'assets/images/person2.JPG',
+    mood: Mood.neutral,
   ),
   Patient(
     firstname: "Warren",
@@ -141,6 +147,7 @@ List<Patient> patients = [
       "Movies": 15,
     },
     imgPath: 'assets/images/person3.JPG',
+    mood: Mood.neutral,
   ),
   Patient(
     firstname: "Bill",
@@ -166,6 +173,7 @@ List<Patient> patients = [
       "Movies": 15,
     },
     imgPath: 'assets/images/person4.JPG',
+    mood: Mood.bad,
   ),
   Patient(
     firstname: "Morgan",
@@ -191,6 +199,7 @@ List<Patient> patients = [
       "Movies": 15,
     },
     imgPath: 'assets/images/person5.JPG',
+    mood: Mood.good,
   ),
   Patient(
     firstname: "Judi",
@@ -216,6 +225,7 @@ List<Patient> patients = [
       "Movies": 15,
     },
     imgPath: 'assets/images/person6.JPG',
+    mood: Mood.good,
   ),
   Patient(
     firstname: "Betty",
@@ -241,6 +251,7 @@ List<Patient> patients = [
       "Movies": 15,
     },
     imgPath: 'assets/images/person7.JPG',
+    mood: Mood.bad,
   ),
   Patient(
     firstname: "Hillary",
@@ -266,5 +277,6 @@ List<Patient> patients = [
       "Movies": 15,
     },
     imgPath: 'assets/images/person8.JPG',
+    mood: Mood.bad,
   ),
 ];

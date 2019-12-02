@@ -24,11 +24,13 @@ class Activity {
   final String name;
   final String description;
   Set<Patient> participants;
+  final String imgPath;
 
   Activity({
     this.name,
     this.description,
     this.participants,
+    this.imgPath,
   });
 }
 
@@ -37,20 +39,24 @@ final List<Activity> allActivities = [
     name: 'Singing',
     description: 'Group Activity lead by a music instructor.',
     participants: patients.getRange(0, 2).toSet(),
+    imgPath: 'assets/images/Singing.jpg',
   ),
   Activity(
     name: 'Story Telling',
     description: 'A nurse reads stories to a group of patients',
     participants: patients.getRange(2, 4).toSet(),
+    imgPath: 'assets/images/Story.png',
   ),
   Activity(
     name: 'Walking',
     description: 'A nurse goes on a walk with one patient.',
     participants: patients.getRange(4, 6).toSet(),
+    imgPath: 'assets/images/Walking.png',
   ),
   Activity(
     name: 'Movies',
     description: 'Group activity: Watching a movie together.',
     participants: patients.getRange(6, 8).toSet(),
+    imgPath: 'assets/images/Movies.jpg',
   ),
 ];
