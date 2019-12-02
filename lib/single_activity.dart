@@ -15,18 +15,32 @@ class SingleActivityPage extends StatelessWidget {
       body: Container(
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Text(
-                'Overall mood: good',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.green,
-                  fontSize: 16.0,
+              Container(
+                margin: EdgeInsets.only(top: 20.0, bottom: 40.0),
+                child: CircleAvatar(
+                  backgroundImage: AssetImage(activity.imgPath),
+                  radius: 70.0,
                 ),
-              ), //TODO replace with dynamic content
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Participants',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Divider(
+                height: 10.0,
+              ),
               for (var p in activity.participants)
                 Card(
                   elevation: 0,
+                  color: Colors.lightGreen,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ListTile(
@@ -34,7 +48,10 @@ class SingleActivityPage extends StatelessWidget {
                         p.imgPath,
                       ),
                       title: Text(p.lastname + ", " + p.firstname),
-                      trailing: Text("Room " + p.room.toString()),
+                      trailing: Icon(
+                        Icons.insert_emoticon,
+                        color: Colors.green,
+                      ),
                       onTap: () {
                         Navigator.push(
                           context,

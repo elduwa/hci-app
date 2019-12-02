@@ -30,10 +30,21 @@ class _ChooseActivitiesPageState extends State<ChooseActivitiesPage> {
         title: Text('Choose Today\'s Activities'),
       ),
       body: _buildActivityTable(allActivities),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _sendDataBack(context),
-        child: Icon(
-          Icons.check,
+      floatingActionButton: Align(
+        alignment: Alignment.bottomCenter,
+        child: RawMaterialButton(
+          onPressed: () => _sendDataBack(context),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text('Cornfirm activities & Assign participants'),
+          ),
+          shape: const StadiumBorder(),
+          fillColor: Colors.orange,
+          textStyle: TextStyle(
+            color: Colors.white,
+            fontSize: 16.0,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );
