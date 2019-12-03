@@ -31,32 +31,48 @@ class _ActivitiesPageState extends State<ActivitiesPage> {
   }
 
   Widget _buildActivityList() {
-    final Iterable<ListTile> tiles = _chosenActivities.map((activity) {
-      return ListTile(
-        title: Text(activity.name),
-        trailing: Icon(Icons.arrow_forward_ios),
-        onTap: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => SingleActivityPage(
-                        activity: activity,
-                      )));
-        },
+    if (_chosenActivities.isEmpty) {
+      return Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Center(
+          child: Text(
+            'No ongoing activities!\nTap on + in the top right corner to choose todays activities.',
+            style: TextStyle(
+              color: Colors.blueGrey,
+              fontSize: 25.0,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ),
       );
-    });
-    final List<Widget> divided = ListTile.divideTiles(
-      tiles: tiles,
-      context: context,
-    )
-        .map((tile) => Card(
-              child: tile,
-            ))
-        .toList();
-    return ListView(
-      padding: const EdgeInsets.all(16.0),
-      children: divided,
-    );
+    } else {
+      final Iterable<ListTile> tiles = _chosenActivities.map((activity) {
+        return ListTile(
+          title: Text(activity.name),
+          trailing: Icon(Icons.arrow_forward_ios),
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => SingleActivityPage(
+                          activity: activity,
+                        )));
+          },
+        );
+      });
+      final List<Widget> divided = ListTile.divideTiles(
+        tiles: tiles,
+        context: context,
+      )
+          .map((tile) => Card(
+                child: tile,
+              ))
+          .toList();
+      return ListView(
+        padding: const EdgeInsets.all(16.0),
+        children: divided,
+      );
+    }
   }
 
   void _goToChooseActivity(BuildContext context) {

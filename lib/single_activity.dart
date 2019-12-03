@@ -38,6 +38,7 @@ class SingleActivityPage extends StatelessWidget {
               ),
               Divider(
                 height: 10.0,
+                thickness: 1.0,
               ),
               for (var p in activity.participants)
                 Card(
